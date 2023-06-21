@@ -23,6 +23,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Collaborators
 
+Used ChatGPT to help me understand what the assignment was asking for, as well as writing tests
+
 ### Setup
 
 - Begin a React project locally with `create-react-app`
@@ -53,10 +55,8 @@ Does not require .env file as of right now
 
 #### UML
 
+![lab 26](./lab26-UML.png)
+
 ### Live/Deployment
 
 [Code sandbox](https://smhqkn-3000.csb.app)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
