@@ -8,12 +8,12 @@ describe('Results', () => {
   test('renders the section element', () => {
     render(<Results data={null} />);
     const sectionElement = screen.queryByTestId('results-section');
-    
+
     expect(sectionElement).toBeNull();
   });
 
   test('renders the JSON data when props.data is provided', () => {
-    const mockData = { name: 'John Doe', age: 30 };
+    const mockData = { name: 'Tricia', age: 20 };
     render(<Results data={mockData} />);
     const jsonElement = screen.getByText((content, element) => {
       const json = JSON.stringify(mockData, undefined, 2);
