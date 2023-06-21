@@ -53,7 +53,7 @@ Does not require .env file as of right now
 
 #### UML
 
-### Deployment
+### Live/Deployment
 
 [Code sandbox](https://smhqkn-3000.csb.app)
 
