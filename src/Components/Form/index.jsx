@@ -16,7 +16,7 @@ function Form (props) {
       <>
         <form onSubmit={handleSubmit}>
           <label >
-            <span>URL: </span>
+            <span className='url-input-bar'>URL: </span>
             <input name='url' type='text' />
             <button type="submit">GO!</button>
           </label>
@@ -28,7 +28,7 @@ function Form (props) {
           </label>
         </form>
       </>
-    )
-};
+    );
+}
 
 export default Form;
