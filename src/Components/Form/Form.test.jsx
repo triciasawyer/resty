@@ -9,8 +9,8 @@ describe('Form', () => {
     const handleApiCallMock = jest.fn();
     const { getByText, getByLabelText } = render(<Form handleApiCall={handleApiCallMock} />);
 
-    const urlInput = getByLabelText('URL:');
-    const submitButton = getByText('GO!');
+    const urlInput = ('URL:');
+    const submitButton = screen.getByText('GO!');
 
     fireEvent.change(urlInput, { target: { value: 'https://pokeapi.co/api/v2/pokemon' } });
     fireEvent.click(submitButton);
@@ -24,12 +24,12 @@ describe('Form', () => {
   test('renders the form with input and buttons', () => {
     const { getByLabelText, getByText } = render(<Form handleApiCall={jest.fn()} />);
 
-    const urlInput = getByLabelText('URL:');
-    const submitButton = getByText('GO!');
-    const getMethod = getByText('GET');
-    const postMethod = getByText('POST');
-    const putMethod = getByText('PUT');
-    const deleteMethod = getByText('DELETE');
+    const urlInput = screen.getByLabelText('URL:');
+    const submitButton = screen.getByText('GO!');
+    const getMethod = screen.getByText('GET');
+    const postMethod = screen.getByText('POST');
+    const putMethod = screen.getByText('PUT');
+    const deleteMethod = screen.getByText('DELETE');
 
     expect(urlInput).toBeInTheDocument();
     expect(submitButton).toBeInTheDocument();
