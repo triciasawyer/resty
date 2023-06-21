@@ -37,11 +37,13 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Header />
+        <div className='request-flex'>
         <Form handleApiCall={this.callApi} />
-        <section className='results'>
+        <section className='search-input'>
         <div className='request-method'>Request Method: {this.state.requestParams.method}</div>
         <div>URL: {this.state.requestParams.url}</div>
         </section>
+        </div>
         <Results data={this.state.data} />
         <Footer />
       </React.Fragment>
