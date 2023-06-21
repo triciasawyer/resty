@@ -3,7 +3,9 @@ $radius: 40%;
 form {
   display: inline-block;
   margin: auto;
-  width: 250px;
+  width: 300px;
+  height: 200px;
+  
 
   label {
     display: flex;
@@ -16,6 +18,7 @@ form {
         margin-right: 1rem;
         padding: .20rem .32rem;
         background: #d6edfa;
+        margin-left: 12px;
 
         &:hover, &.active {
           background: #fff;
@@ -28,5 +31,6 @@ form {
     color: #efefef;
     margin-right: 10px;
     font-size: 20px;
+    padding-left: 25px;
   }
 }
