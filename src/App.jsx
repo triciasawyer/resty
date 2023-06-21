@@ -37,9 +37,11 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Header />
-        <div>Request Method: {this.state.requestParams.method}</div>
-        <div>URL: {this.state.requestParams.url}</div>
         <Form handleApiCall={this.callApi} />
+        <section className='results'>
+        <div className='request-method'>Request Method: {this.state.requestParams.method}</div>
+        <div>URL: {this.state.requestParams.url}</div>
+        </section>
         <Results data={this.state.data} />
         <Footer />
       </React.Fragment>
