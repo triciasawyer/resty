@@ -17,6 +17,11 @@ function Form(props) {
     props.handleApiCall(formData);
   };
 
+  const handleClick = (e) => {
+    const selectedMethod = e.target.id;
+    setMethod(selectedMethod);
+  };
+
 
   return (
     <>
@@ -27,13 +32,12 @@ function Form(props) {
           <button data-testid="form-button" type="submit">GO!</button>
         </label>
         <label className="methods">
-          <span data-testid="form-span-get" id="get" onClick={(e) => setMethod('GET')}>GET</span>
-          <span data-testid="form-span-post" id="post" onClick={(e) => setMethod('POST')}>POST</span>
-          <span data-testid="form-span-put" id="put" onClick={(e) => setMethod('PUT')}>PUT</span>
-          <span data-testid="form-span-delete" id="delete" onClick={(e) => setMethod('DELETE')}>DELETE</span>
+          <span data-testid="form-span-get" id="GET" onClick={handleClick} style={{ backgroundColor: method === 'GET' ? 'lightgreen' : '#d6edfa'}}>GET</span>
+          <span data-testid="form-span-post" id="POST" onClick={handleClick} style={{ backgroundColor: method === 'POST' ? 'lightgreen' : '#d6edfa'}}>POST</span>
+          <span data-testid="form-span-put" id="PUT" onClick={handleClick} style={{ backgroundColor: method === 'PUT' ? 'lightgreen' : '#d6edfa'}}>PUT</span>
+          <span data-testid="form-span-delete" id="DELETE" onClick={handleClick} style={{ backgroundColor: method === 'DELETE' ? 'lightgreen' : '#d6edfa'}}>DELETE</span>
         </label>
-        {method === 'POST' && <textarea onChange={(e) => setPostData(e.target.value)}/>}
-        {method === 'PUT' && <textarea onChange={(e) => setPostData(e.target.value)}/>}
+        {(method === 'POST' || method === 'PUT') && <textarea onChange={(e) => setPostData(e.target.value)}/>}
       </form>
     </>
   );
