@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 
 import './App.scss';
 
@@ -11,42 +11,41 @@ import Footer from './Components/Footer';
 import Form from './Components/Form';
 import Results from './Components/Results';
 
-class App extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: null,
-      requestParams: {},
-    };
-  }
+function App() {
+  const [data, setData] = useState(null);
+  const [requestParams, setRequestParams] = useState({});
+  const [loading, setLoading] = useState(false);
 
-  callApi = (requestParams) => {
+  const callApi = (requestParams) => {
+    setLoading(true);
     // mock output
     const data = {
       count: 2,
       results: [
-        {name: 'fake thing 1', url: 'http://fakethings.com/1'},
-        {name: 'fake thing 2', url: 'http://fakethings.com/2'},
+        { name: 'fake thing 1', url: 'http://fakethings.com/1' },
+        { name: 'fake thing 2', url: 'http://fakethings.com/2' },
       ],
     };
-    this.setState({data, requestParams});
+    setData(data);
+    setRequestParams(requestParams);
+    setLoading(false);
   }
 
-  render() {
-    return (
-      <React.Fragment>
-        <Header />
-        <Form handleApiCall={this.callApi} />
-        <section className='results'>
-        <div className='request-method'>Request Method: {this.state.requestParams.method}</div>
-        <div>URL: {this.state.requestParams.url}</div>
+  return (
+    <>
+      <Header />
+      <div className='request-flex'>
+        <Form handleApiCall={callApi} />
+        <section className='search-input'>
+          <div data-testid="app-div-method" className='request-method'>Request Method: {requestParams.method}</div>
+          <div data-testid="app-div-url">URL: {requestParams.url}</div>
         </section>
-        <Results data={this.state.data} />
-        <Footer />
-      </React.Fragment>
-    );
-  }
+      </div>
+      <Results data={data} loading={loading} />
+      <Footer />
+    </>
+  );
 }
 
 export default App;

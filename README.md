@@ -1,10 +1,12 @@
-# Project: Lab 26 - Component Based UI
+# Project: Lab 26-27 - Component Based UI
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Author: Tricia Sawyer
 
 ## Project domain
+
+Lab 26
 
 - SASS - Nesting and Variables
 - "Component Architecture"
@@ -21,9 +23,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   - Components can load and render each other
   - Components can load their own css
 
+Lab 27
+
+- Refactor any components using this.setState() to implement the useState() react API hook.
+Refactor the Form Component to implement user input from form elements, instead of hard coded string values
+
 ### Collaborators
 
-Used ChatGPT to help me understand what the assignment was asking for, as well as writing tests
+- Used ChatGPT to help me understand what the assignment was asking for, as well as writing tests in lab 26
+- Ryan in code review for lab 27
 
 ### Setup
 
@@ -55,7 +63,8 @@ Does not require .env file as of right now
 
 #### UML
 
-![lab 26](./lab26-UML.png)
+![lab 26](./assets/lab26-UML.png)
+![lab 27](./assets/lab27-UML.png)
 
 ### Live/Deployment
 
