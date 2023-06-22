@@ -23,14 +23,14 @@ function Form(props) {
       <form onSubmit={handleSubmit}>
         <label >
           <span className='url-input-bar'>URL: </span>
-          <input name='url' type='text' onChange={(e) => setUrl (e.target.value)}/>
-          <button type="submit">GO!</button>
+          <input data-testid="form-input" name='url' type='text' onChange={(e) => setUrl (e.target.value)}/>
+          <button data-testid="form-button" type="submit">GO!</button>
         </label>
         <label className="methods">
-          <span data-testid="form-get" id="get" onClick={(e) => setMethod('GET')}>GET</span>
-          <span data-testid="form-post" id="post" onClick={(e) => setMethod('POST')}>POST</span>
-          <span data-testid="form-put" id="put" onClick={(e) => setMethod('PUT')}>PUT</span>
-          <span data-testid="form-delete" id="delete" onClick={(e) => setMethod('DELETE')}>DELETE</span>
+          <span data-testid="form-span-get" id="get" onClick={(e) => setMethod('GET')}>GET</span>
+          <span data-testid="form-span-post" id="post" onClick={(e) => setMethod('POST')}>POST</span>
+          <span data-testid="form-span-put" id="put" onClick={(e) => setMethod('PUT')}>PUT</span>
+          <span data-testid="form-span-delete" id="delete" onClick={(e) => setMethod('DELETE')}>DELETE</span>
         </label>
         {method === 'POST' && <textarea onChange={(e) => setPostData(e.target.value)}/>}
         {method === 'PUT' && <textarea onChange={(e) => setPostData(e.target.value)}/>}
