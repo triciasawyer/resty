@@ -39,7 +39,7 @@ function App() {
         <Form handleApiCall={callApi} />
         <section className='search-input'>
           <div data-testid="app-div-method" className='request-method'>Request Method: {requestParams.method}</div>
-          <div data-testid="ap-div-url">URL: {requestParams.url}</div>
+          <div data-testid="app-div-url">URL: {requestParams.url}</div>
         </section>
       </div>
       <Results data={data} loading={loading} />

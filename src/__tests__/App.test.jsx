@@ -19,6 +19,11 @@ describe('App component integration', () => {
 
         expect(preElement).toHaveTextContent('fake thing 1');
 
+
+        let methodDiv = screen.getByTestId('app-div-method');
+        let urlDiv = screen.getByTestId('app-div-url');
+        expect(methodDiv).toHaveTextContent('POST');
+        expect(urlDiv).toHaveTextContent('testing.com');
     });
 
 
