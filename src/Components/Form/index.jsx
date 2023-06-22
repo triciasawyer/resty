@@ -4,7 +4,7 @@ import './Form.scss';
 function Form(props) {
   const [url, setUrl] = useState('');
   const [method, setMethod] = useState('GET');
-  const [postData, setPostData] = useState('');
+  // const [postData, setPostData] = useState('');
 
 
   const handleSubmit = (e) => {
@@ -12,7 +12,7 @@ function Form(props) {
     const formData = {
       method: method,
       url: url,
-      data: postData,
+      // data: ,
     };
     props.handleApiCall(formData);
   };
