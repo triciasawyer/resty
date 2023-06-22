@@ -63,8 +63,8 @@ Does not require .env file as of right now
 
 #### UML
 
-![lab 26](./lab26-UML.png)
-![lab 27]()
+![lab 26](./assets/lab26-UML.png)
+![lab 27](./assets/lab27-UML.png)
 
 ### Live/Deployment
 
