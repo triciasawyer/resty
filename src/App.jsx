@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './App.scss';
 
@@ -11,44 +11,39 @@ import Footer from './Components/Footer';
 import Form from './Components/Form';
 import Results from './Components/Results';
 
-class App extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: null,
-      requestParams: {},
-    };
-  }
+const App = () => {
+const [data, setData] = useState(null);
+const [requestParams, setRequestParams] = useState({});
+
 
   callApi = (requestParams) => {
     // mock output
-    const data = {
+    const newData = {
       count: 2,
       results: [
         {name: 'fake thing 1', url: 'http://fakethings.com/1'},
         {name: 'fake thing 2', url: 'http://fakethings.com/2'},
       ],
     };
-    this.setState({data, requestParams});
-  }
+    setData(newData);
+    setRequestParams(requestParams);
+  };
 
-  render() {
     return (
       <React.Fragment>
         <Header />
         <div className='request-flex'>
-        <Form handleApiCall={this.callApi} />
+        <Form handleApiCall={callApi} />
         <section className='search-input'>
-        <div className='request-method'>Request Method: {this.state.requestParams.method}</div>
-        <div>URL: {this.state.requestParams.url}</div>
+        <div className='request-method'>Request Method: {requestParams.method}</div>
+        <div>URL: {requestParams.url}</div>
         </section>
         </div>
-        <Results data={this.state.data} />
+        <Results data={data} />
         <Footer />
       </React.Fragment>
     );
-  }
-}
+  };
 
 export default App;
