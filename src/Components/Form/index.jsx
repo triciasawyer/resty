@@ -4,7 +4,7 @@ import './Form.scss';
 function Form(props) {
   const [url, setUrl] = useState('');
   const [method, setMethod] = useState('GET');
-  // const [postData, setPostData] = useState('');
+  const [postData, setPostData] = useState('');
 
 
   const handleSubmit = (e) => {
@@ -12,7 +12,7 @@ function Form(props) {
     const formData = {
       method: method,
       url: url,
-      // data: ,
+      data: postData,
     };
     props.handleApiCall(formData);
   };
@@ -32,6 +32,8 @@ function Form(props) {
           <span data-testid="form-put" id="put" onClick={(e) => setMethod('PUT')}>PUT</span>
           <span data-testid="form-delete" id="delete" onClick={(e) => setMethod('DELETE')}>DELETE</span>
         </label>
+        {method === 'POST' && <textarea onChange={(e) => setPostData(e.target.value)}/>}
+        {method === 'PUT' && <textarea onChange={(e) => setPostData(e.target.value)}/>}
       </form>
     </>
   );
