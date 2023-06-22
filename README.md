@@ -30,7 +30,8 @@ Refactor the Form Component to implement user input from form elements, instead 
 
 ### Collaborators
 
-Used ChatGPT to help me understand what the assignment was asking for, as well as writing tests
+- Used ChatGPT to help me understand what the assignment was asking for, as well as writing tests in lab 26
+- Ryan in code review for lab 27
 
 ### Setup
 
