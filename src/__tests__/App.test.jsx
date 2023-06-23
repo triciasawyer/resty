@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
-// import axios from 'axios';
+import axios from 'axios';
 
 import App from '../App';
 
@@ -28,15 +28,11 @@ describe('App component integration', () => {
     fireEvent.click(button);
 
     await waitFor(() => {
-      console.log('Response:', server.printHandlers());
       expect(screen.getByText('Howdy', { exact: false })).toBeInTheDocument();
     });
 
     let methodDiv = screen.getByTestId('app-div-method');
     let urlDiv = screen.getByTestId('app-div-url');
-
-    console.log('Method Div:', methodDiv.innerHTML);
-    console.log('URL Div:', urlDiv.innerHTML);
 
     expect(methodDiv).toHaveTextContent('GET');
     expect(urlDiv).toHaveTextContent('/testGet');
