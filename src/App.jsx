@@ -18,50 +18,73 @@ function App() {
   const [requestParams, setRequestParams] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const callApi = async (requestParams) => {
-    setLoading(true);
+  const callApi = (requestParams) => {
+    // setLoading(true);
     // mock output
-  //   const data = {
-  //     count: 2,
-  //     results: [
-  //       { name: 'fake thing 1', url: 'http://fakethings.com/1' },
-  //       { name: 'fake thing 2', url: 'http://fakethings.com/2' },
-  //     ],
-  //   };
-  //   setData(data);
-  //   setRequestParams(requestParams);
-  //   setLoading(false);
-  // }
-  try {
-    let response = null;
-    if (requestParams.method === 'GET') {
-      response = await axios.get(requestParams.url);
-      setData(response.data);
-    } else if (requestParams.method === 'DELETE') {
-      response = await axios.delete(requestParams.url);
-      setData(response.data);
-    } else if (requestParams.method === 'PUT') {
-      response = await axios.put(requestParams.url, requestParams.body);
-      setData(response.data);
-    } else if (requestParams.method === 'POST') {
-      response = await axios.post(requestParams.url, requestParams.body);
-      setData(response.data);
-    } else {
-      throw new Error('Invalid request method.');
+    //   const data = {
+    //     count: 2,
+    //     results: [
+    //       { name: 'fake thing 1', url: 'http://fakethings.com/1' },
+    //       { name: 'fake thing 2', url: 'http://fakethings.com/2' },
+    //     ],
+    //   };
+    //   setData(data);
+    //   setRequestParams(requestParams);
+    //   setLoading(false);
+    // }
+    // try {
+    //   let response = null;
+    //   if (requestParams.method === 'GET') {
+    //     response = await axios.get(requestParams.url);
+    //     setData(response.data);
+    //   } else if (requestParams.method === 'DELETE') {
+    //     response = await axios.delete(requestParams.url);
+    //     setData(response.data);
+    //   } else if (requestParams.method === 'PUT') {
+    //     response = await axios.put(requestParams.url, requestParams.body);
+    //     setData(response.data);
+    //   } else if (requestParams.method === 'POST') {
+    //     response = await axios.post(requestParams.url, requestParams.body);
+    //     setData(response.data);
+    //   } else {
+    //     throw new Error('Invalid request method.');
+    //   }
+    // } catch (error) {
+    //   console.error('API Error:', error);
+    // }
+    // setLoading(false);
+    setRequestParams(requestParams);
+  }
+
+
+  // MINE
+  // useEffect(() => {
+  //   if (requestParams.url && requestParams.method === 'GET') {
+  //     callApi(requestParams);
+  //   }
+  // }, [requestParams]);
+
+
+  // RYANS
+  useEffect(() => {
+    try {
+      const getData = async () => {
+        if (requestParams.url && requestParams.method) {
+          setLoading(true);
+          console.log(requestParams);
+          let response = await axios(requestParams);
+          let results = response.data
+          setData(results);
+          setLoading(false);
+        }
+      }
+      getData();
+    } catch (err) {
+      setData('No data available');
     }
-  } catch (error) {
-    console.error('API Error:', error);
-  }
-  setLoading(false);
-  setRequestParams(requestParams);
-};
+  }, [requestParams]);
 
 
-useEffect(() => {
-  if (requestParams.url && requestParams.method === 'GET') {
-    callApi(requestParams);
-  }
-}, [requestParams]);
 
 
   return (
@@ -70,7 +93,7 @@ useEffect(() => {
       <div className='request-flex'>
         <Form handleApiCall={callApi} />
         <section className='search-input'>
-          <div data-testid="app-div-method" className='request-method'>Request Method: {requestParams.method}</div>
+          <div data-testid="app-div-method" className='request-method'>Request Method: {requestParams?.method?.toUpperCase()}</div>
           <div data-testid="app-div-url">URL: {requestParams.url}</div>
         </section>
       </div>

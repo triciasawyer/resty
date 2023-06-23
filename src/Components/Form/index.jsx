@@ -4,7 +4,7 @@ import './Form.scss';
 function Form(props) {
   const [url, setUrl] = useState('');
   const [method, setMethod] = useState('GET');
-  const [postData, setPostData] = useState('');
+  const [data, setData] = useState('');
 
 
   const handleSubmit = (e) => {
@@ -12,7 +12,7 @@ function Form(props) {
     const formData = {
       method: method,
       url: url,
-      data: postData,
+      // data: postData,
     };
     props.handleApiCall(formData);
   };
@@ -31,13 +31,23 @@ function Form(props) {
           <input data-testid="form-input" name='url' type='text' onChange={(e) => setUrl (e.target.value)}/>
           <button data-testid="form-button" type="submit">GO!</button>
         </label>
+
+{/* Ryan code review */}
+        <label>JSON data
+          <textarea
+          rows="4"
+          cols="50"
+          onChange={(e) => {setData(e.target.value)}}
+          />
+        </label>
+
         <label className="methods">
           <span data-testid="form-span-get" id="GET" onClick={handleClick} style={{ backgroundColor: method === 'GET' ? 'lightgreen' : '#d6edfa'}}>GET</span>
           <span data-testid="form-span-post" id="POST" onClick={handleClick} style={{ backgroundColor: method === 'POST' ? 'lightgreen' : '#d6edfa'}}>POST</span>
           <span data-testid="form-span-put" id="PUT" onClick={handleClick} style={{ backgroundColor: method === 'PUT' ? 'lightgreen' : '#d6edfa'}}>PUT</span>
           <span data-testid="form-span-delete" id="DELETE" onClick={handleClick} style={{ backgroundColor: method === 'DELETE' ? 'lightgreen' : '#d6edfa'}}>DELETE</span>
         </label>
-        {(method === 'POST' || method === 'PUT') && <textarea onChange={(e) => setPostData(e.target.value)}/>}
+        {(method === 'POST' || method === 'PUT') && <textarea onChange={(e) => setData(e.target.value)}/>}
       </form>
     </>
   );
