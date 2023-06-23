@@ -18,29 +18,50 @@ function App() {
   const [requestParams, setRequestParams] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const callApi = (requestParams) => {
+  const callApi = async (requestParams) => {
     setLoading(true);
     // mock output
-    const data = {
-      count: 2,
-      results: [
-        { name: 'fake thing 1', url: 'http://fakethings.com/1' },
-        { name: 'fake thing 2', url: 'http://fakethings.com/2' },
-      ],
-    };
-    setData(data);
-    setRequestParams(requestParams);
-    setLoading(false);
-  }
-
-
-  useEffect(() => {
-    async function getData() {
-      let response = await axios.get(requestParams.url);
-      setData(response.data.results);
+  //   const data = {
+  //     count: 2,
+  //     results: [
+  //       { name: 'fake thing 1', url: 'http://fakethings.com/1' },
+  //       { name: 'fake thing 2', url: 'http://fakethings.com/2' },
+  //     ],
+  //   };
+  //   setData(data);
+  //   setRequestParams(requestParams);
+  //   setLoading(false);
+  // }
+  try {
+    let response = null;
+    if (requestParams.method === 'GET') {
+      response = await axios.get(requestParams.url);
+      setData(response.data);
+    } else if (requestParams.method === 'DELETE') {
+      response = await axios.delete(requestParams.url);
+      setData(response.data);
+    } else if (requestParams.method === 'PUT') {
+      response = await axios.put(requestParams.url, requestParams.body);
+      setData(response.data);
+    } else if (requestParams.method === 'POST') {
+      response = await axios.post(requestParams.url, requestParams.body);
+      setData(response.data);
+    } else {
+      throw new Error('Invalid request method.');
     }
-    getData();
-  }, [requestParams]);
+  } catch (error) {
+    console.error('API Error:', error);
+  }
+  setLoading(false);
+  setRequestParams(requestParams);
+};
+
+
+useEffect(() => {
+  if (requestParams.url && requestParams.method === 'GET') {
+    callApi(requestParams);
+  }
+}, [requestParams]);
 
 
   return (
