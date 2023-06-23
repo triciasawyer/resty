@@ -53,19 +53,13 @@ function App() {
     //   console.error('API Error:', error);
     // }
     // setLoading(false);
+    setLoading(true); // gives a loading message
+    setTimeout(() => {
     setRequestParams(requestParams);
+    setLoading(false);
+    }, 500);
   }
 
-
-  // MINE
-  // useEffect(() => {
-  //   if (requestParams.url && requestParams.method === 'GET') {
-  //     callApi(requestParams);
-  //   }
-  // }, [requestParams]);
-
-
-  // RYANS
   useEffect(() => {
     try {
       const getData = async () => {
