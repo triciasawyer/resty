@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import './App.scss';
 
@@ -10,6 +10,7 @@ import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Form from './Components/Form';
 import Results from './Components/Results';
+import axios from 'axios';
 
 
 function App() {
@@ -31,6 +32,16 @@ function App() {
     setRequestParams(requestParams);
     setLoading(false);
   }
+
+
+  useEffect(() => {
+    async function getData() {
+      let response = await axios.get(requestParams.url);
+      setData(response.data.results);
+    }
+    getData();
+  }, [requestParams]);
+
 
   return (
     <>
