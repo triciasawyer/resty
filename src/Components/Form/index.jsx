@@ -12,7 +12,7 @@ function Form(props) {
     const formData = {
       method: method,
       url: url,
-      data: JSON.parse(data),
+      data: data ? JSON.parse(data) : null,
     };
     props.handleApiCall(formData);
   };
@@ -21,7 +21,6 @@ function Form(props) {
     const selectedMethod = e.target.id;
     setMethod(selectedMethod);
   };
-
 
   return (
     <>
