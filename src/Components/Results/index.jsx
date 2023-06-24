@@ -8,7 +8,7 @@ function Results({ data, loading }) {
     <section>
       {
         loading ? <p>Loading...</p> :
-          <pre data-testid="results-pre">
+          <pre data-testid='results-pre'>
             {
               data
                 ? <JSONPretty data={data} theme={JSONPrettyMonikaiTheme}></JSONPretty>
