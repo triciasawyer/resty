@@ -12,7 +12,7 @@ function Form(props) {
     const formData = {
       method: method,
       url: url,
-      data: data,
+      data: JSON.parse(data),
     };
     props.handleApiCall(formData);
   };
@@ -31,15 +31,7 @@ function Form(props) {
           <input data-testid="form-input" name='url' type='text' onChange={(e) => setUrl (e.target.value)}/>
           <button data-testid="form-button" type="submit">GO!</button>
         </label>
-
-{/* Ryan code review */}
-        <label>JSON data
-          <textarea
-          rows="4"
-          cols="50"
-          onChange={(e) => {setData(e.target.value)}}
-          />
-        </label>
+        
 
         <label className="methods">
           <span data-testid="form-span-get" id="GET" onClick={handleClick} style={{ backgroundColor: method === 'GET' ? 'lightgreen' : '#d6edfa'}}>GET</span>
