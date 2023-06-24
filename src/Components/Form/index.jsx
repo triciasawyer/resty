@@ -12,7 +12,7 @@ function Form(props) {
     const formData = {
       method: method,
       url: url,
-      // data: postData,
+      data: data,
     };
     props.handleApiCall(formData);
   };
