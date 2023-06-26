@@ -1,18 +1,27 @@
 import './History.scss';
 
 function History(props) {
-    const { history } = props;
-    console.log(history)
+    const { history, displayHistory } = props;
+    // console.log(history)
 
     return (
         <>
             <ul>
-                {props.history.map((event, index) => (
-                    <li key={index}>{event[0]?.url}</li>
-                ))}
+                {
+                    history.length ?
+                        history.map((record, idx) => (
+                            <li key={`history-${idx}`}>
+                                <button onClick={() => displayHistory(idx)}>
+                                {record.method && record.method.toUpperCase()}: {record.url}
+                                </button>
+                            </li>
+                        ))
+                        : ''
+                }
             </ul>
         </>
-    );
+    )
 }
+
 
 export default History;
