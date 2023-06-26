@@ -74,10 +74,10 @@ function App() {
       <Header />
       <div className='request-flex'>
         <Form handleApiCall={callApi} />
-        <section className='search-input'>
+        <section className='search-results'>
           <div data-testid="app-div-method" className='request-method'>Request Method: {requestParams?.method?.toUpperCase()}</div>
           <div data-testid="app-div-url">URL: {requestParams.url}</div>
-          <History history={state.history} displayHistory={displayHistory}/>
+          <History className='history' history={state.history} displayHistory={displayHistory}/>
         </section>
       </div>
       <Results data={state.data} loading={state.loading} />
