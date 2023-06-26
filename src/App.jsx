@@ -4,53 +4,63 @@ import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Form from './Components/Form';
 import Results from './Components/Results';
+import History from './Components/History';
 import axios from 'axios';
 
+
+export const initialState = {
+  data: null,
+  history: [],
+  loading: false,
+};
+
+
+export const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'SET-DATA':
+      return { ...state, data: action.payload };
+    case 'HISTORY':
+      return { ...state, history: action.payload };
+    case 'LOADING':
+      return { ...state, loading: action.payload };
+    default:
+      return state;
+  }
+};
+
 function App() {
-  const [data, setData] = useState(null);
+  // const [data, setData] = useState(null);
   const [requestParams, setRequestParams] = useState({});
-  const [loading, setLoading] = useState(false);
+  const [state, dispatch] = useReducer(reducer, initialState);
+  // const [loading, setLoading] = useState(false);
+
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        if (requestParams.url && requestParams.method) {
-          setLoading(true);
-          let response;
+    try {
+      const getData = async () => {
+        if (requestParams.method === 'GET') {
+          let response = await axios.get(requestParams.url);
+          dispatch({ type: 'SET-DATA', payload: response.data });
+          let results = [requestParams, response.data];
 
-          switch (requestParams.method) {
-            case 'GET':
-              response = await axios.get(requestParams.url);
-              break;
-            case 'POST':
-              response = await axios.post(requestParams.url, requestParams.json);
-              break;
-            case 'PUT':
-              response = await axios.put(requestParams.url, requestParams.json);
-              break;
-            case 'DELETE':
-              response = await axios.delete(requestParams.url);
-              break;
-            default:
-              throw new Error('Invalid request method.');
-          }
-
-          setData(response.data);
-          setLoading(false);
+          dispatch({ type: 'HISTORY', payload: results });
         }
-      } catch (err) {
-        console.error('API Error:', err);
-        setLoading(false);
       }
-    };
-
-    fetchData();
+      if (requestParams.url && requestParams.method) {
+        getData();
+      }
+      dispatch({ type: 'LOADING', payload: false });
+    } catch (err) {
+      dispatch({ type: 'SET-DATA', payload: 'There is no data available' });
+      dispatch({ type: 'LOADING', payload: false });
+    }
   }, [requestParams]);
 
+
   const callApi = (requestParams) => {
-    setLoading(true);
     setRequestParams(requestParams);
-  };
+  }
+
 
   return (
     <>
@@ -62,11 +72,13 @@ function App() {
           <div data-testid="app-div-url">URL: {requestParams.url}</div>
         </section>
       </div>
-      <Results data={data} loading={loading} />
+      <History history={state.history} />
+      <Results data={state.data} loading={state.loading} />
       <Footer />
     </>
   );
 }
+
 
 export default App;
 
