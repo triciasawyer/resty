@@ -1,7 +1,12 @@
 li {
-    margin-left: 58rem;
-    width: 22rem;
-    height: 28px;
-    background-color: lightgreen;
     list-style: none;
+    background-color: lightgreen;
 }
+
+.history-container {
+    position: relative;
+    z-index: 1;
+    margin-left: 60rem;
+    height: 50px;
+  }
+ 

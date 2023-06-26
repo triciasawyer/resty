@@ -6,7 +6,7 @@ function History(props) {
 
     return (
         <>
-            <ul>
+            <ul className='history-container'>
                 {
                     history.length ?
                         history.map((record, idx) => (
