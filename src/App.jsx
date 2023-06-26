@@ -37,19 +37,19 @@ function App() {
 
   useEffect(() => {
     try {
-      const getData = async () => {
+      dispatch({ type: 'LOADING', payload: true });
+      async function getData() {
         if (requestParams.method === 'GET') {
           let response = await axios.get(requestParams.url);
           dispatch({ type: 'SET-DATA', payload: response.data });
-          let results = [requestParams, response.data];
-
-          dispatch({ type: 'HISTORY', payload: results });
+          let historyResults = [requestParams, response.data];
+          dispatch({ type: 'HISTORY', payload: historyResults });
         }
       }
       if (requestParams.url && requestParams.method) {
         getData();
+        dispatch({ type: 'LOADING', payload: false });
       }
-      dispatch({ type: 'LOADING', payload: false });
     } catch (err) {
       dispatch({ type: 'SET-DATA', payload: 'There is no data available' });
       dispatch({ type: 'LOADING', payload: false });
