@@ -70,9 +70,9 @@ function App() {
         <section className='search-input'>
           <div data-testid="app-div-method" className='request-method'>Request Method: {requestParams?.method?.toUpperCase()}</div>
           <div data-testid="app-div-url">URL: {requestParams.url}</div>
+          <History history={state.history} />
         </section>
       </div>
-      <History history={state.history} />
       <Results data={state.data} loading={state.loading} />
       <Footer />
     </>
