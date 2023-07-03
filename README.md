@@ -76,7 +76,8 @@ Does not require .env file as of right now
 
 #### Tests
 
-- npm test
+- run npm test
+- run npm start to run the app
 
 #### UML
 
@@ -85,4 +86,4 @@ Does not require .env file as of right now
 
 ### Live/Deployment
 
-[Code sandbox](https://smhqkn-3000.csb.app)
+[Code sandbox](https://6nlgfl-3000.csb.app/)
