@@ -3,9 +3,9 @@ $radius: 40%;
 form {
   display: inline-block;
   margin: auto;
-  width: 300px;
+  width: 400px;
   height: 200px;
-  // margin-right: 20rem;
+  margin-right: 13rem;
 
   label {
     display: flex;
@@ -18,7 +18,7 @@ form {
         margin-right: 1rem;
         padding: .20rem .32rem;
         background: #d6edfa;
-        margin-left: 12px;
+        margin-left: 35px;
 
         &:hover, &.active {
           background: #fff;
@@ -29,8 +29,11 @@ form {
 
   .url-input-bar {
     color: #efefef;
-    margin-right: 10px;
+    margin-right: 5px;
     font-size: 20px;
-    // padding-left: 5px;
   }
+}
+
+.form-input {
+  width: 800px;
 }

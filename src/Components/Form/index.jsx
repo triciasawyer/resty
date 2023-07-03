@@ -27,7 +27,7 @@ function Form(props) {
       <form onSubmit={handleSubmit}>
         <label >
           <span className='url-input-bar'>URL: </span>
-          <input data-testid="form-input" name='url' type='text' onChange={(e) => setUrl (e.target.value)}/>
+          <input className="form-input" data-testid="form-input" name='url' type='text' onChange={(e) => setUrl (e.target.value)}/>
           <button data-testid="form-button" type="submit">GO!</button>
         </label>
         
