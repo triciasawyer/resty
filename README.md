@@ -1,83 +1,50 @@
 # Project: Lab 26-29 - Component Based UI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Author: Tricia Sawyer
 
-## Project domain
+This React-based project explores various aspects of modern web development and user interface design. It consists of several phases, each building upon the previous one to create a robust web application.
 
-Lab 26
+### Key Concepts Explored
 
-- SASS - Nesting and Variables
-- "Component Architecture"
-- Application and Component "State"
-- Debate/Discuss Libraries vs Frameworks
-- Basics of a React App
-  - index.html in public (root div)
-  - index.js as an untouchable "bootstrap" or "entry point"
-  - React Renders into that div
-  - JSX is actually javascript but it looks like markup
-  - Components can be classes or functions. What gets "returned" gets "rendered"
-    - Class - `render() { return(jsx) }`
-    - Function - `return(jsx)`
-  - Components can load and render each other
-  - Components can load their own css
+#### Phase 1: Component Architecture and React Basics
 
-Lab 27
+- Dive into the world of web design with SASS, utilizing nesting and variables.
+- Explore the concept of "Component Architecture" for building modular and maintainable UIs.
+- Understand the importance of managing application and component state.
+- Get acquainted with the fundamental structure of a React application, including the role of index.html and index.js.
+- Discover how React renders content into a designated root element and learn about JSX, which blends JavaScript with markup.
+- Explore the flexibility of React components, which can be implemented as classes or functions, and understand how what's returned gets rendered.
+- Grasp the concept that components can load and render other components, promoting code reusability.
+- Experience the ability of components to manage their own CSS styles.
 
-- Refactor any components using this.setState() to implement the useState() react API hook.
-Refactor the Form Component to implement user input from form elements, instead of hard coded string values
+#### Phase 2: Refactoring with React Hooks
 
-Lab 28
+- Refactor components that use the legacy this.setState() method to employ the modern useState() React API hook.
+- Enhance the Form Component to handle user input from form elements, eliminating hard-coded string values.
 
-- In phase 3, we will be connecting RESTy to live APIs, fetching and displaying remote data. Our primary focus will be to service GET requests.
+#### Phase 3: Connecting to Live APIs
 
-The following user stories detail the major functionality for this phase of the project.
+In this phase, the project shifts its focus to connecting with live APIs, fetching remote data, and presenting it to users. It implements the ability for users to enter API URLs and issue GET requests to retrieve data. It also provides users with readable and well-formatted results from API requests.
 
-As a user, I want to enter the URL to an API and issue a GET request so that I can retrieve it’s data.
-As a user, I want to see the results returned from an API request in my browser in a readable format.
+#### Phase 4: API Call Tracking
 
-Lab 29
-
-- In phase 4, we will be tracking every API call and storing it in history.
-
-The following user stories detail the major functionality for this phase of the project.
-
-As a user, I want to see a list of my previous API calls, so that I can see the results again, quickly.
+In the final phase, I added a feature to track and store every API call in a history. Users can easily access a list of their previous API calls to review results quickly.
 
 ### Collaborators
 
-- Used ChatGPT to help me understand what the assignment was asking for, as well as writing tests in lab 26
-- Ryan in code review for lab 27
+- ChatGPT provided guidance on getting started and assisting with writing tests.
+- Collaboration with Ryan Gallaway contributed to project improvements
 
-### Setup
+### Project Setup
 
-- Begin a React project locally with `create-react-app`
-- Use codesandbox.io to work live on a React application
-- Create and render `Class` and `Functional` React components to the DOM
-- Add event listeners to React components
-- Update React component state
-- Style React applications/components using SASS
-
-#### `.env` requirements (where applicable)
-
-Does not require .env file as of right now
-
-#### How to initialize/run your application (where applicable)
-
-- e.g. `npm start`
-
-#### How to use your library (where applicable)
-
-#### Features / Routes
-
-- Feature One: Details of feature
-- GET : `/hello` - specific route to hit
-
-#### Tests
-
-- run npm test
-- run npm start to run the app
+1. Initiate a local React project using create-react-app.
+2. Utilize Codesandbox.io for live development on a React application.
+3. Create and render both Class and Functional React components to the DOM.
+4. Add event listeners to React components for interactivity.
+5. Update React component state to reflect changes in the UI.
+6. Style React applications and components using SASS for enhanced aesthetics.
+7. Running the Application, to start the application, use the command `npm start`.
+8. Execute tests with the command `npm test`.
 
 #### UML
 
