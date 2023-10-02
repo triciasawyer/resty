@@ -1,4 +1,4 @@
-# Project: Lab 26-29 - Component Based UI
+# Component Based UI Project
 
 ## Author: Tricia Sawyer
 
@@ -30,6 +30,10 @@ In this phase, the project shifts its focus to connecting with live APIs, fetchi
 
 In the final phase, I added a feature to track and store every API call in a history. Users can easily access a list of their previous API calls to review results quickly.
 
+### Deployment
+
+[Code sandbox](https://6nlgfl-3000.csb.app/)
+
 ### Collaborators
 
 - ChatGPT provided guidance on getting started and assisting with writing tests.
@@ -50,7 +54,3 @@ In the final phase, I added a feature to track and store every API call in a his
 
 ![lab 26](./assets/lab26-UML.png)
 ![lab 27](./assets/lab27-UML.png)
-
-### Live/Deployment
-
-[Code sandbox](https://6nlgfl-3000.csb.app/)
